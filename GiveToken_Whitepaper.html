@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GiveToken (GIVE) Whitepaper</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            border-bottom: 3px solid #2563EB;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            color: #2563EB;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .header .version {
+            font-weight: bold;
+            color: #FFC300;
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            border-left: 4px solid #2563EB;
+        }
+        
+        .toc h2 {
+            color: #2563EB;
+            margin-bottom: 1rem;
+        }
+        
+        .toc ol {
+            list-style: none;
+            counter-reset: toc-counter;
+        }
+        
+        .toc ol li {
+            counter-increment: toc-counter;
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc ol li::before {
+            content: counter(toc-counter) ". ";
+            color: #2563EB;
+            font-weight: bold;
+        }
+        
+        .toc a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .toc a:hover {
+            color: #2563EB;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        h1, h2, h3, h4 {
+            color: #2563EB;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            border-bottom: 2px solid #FFC300;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+        }
+        
+        h4 {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        strong {
+            color: #2563EB;
+        }
+        
+        .highlight {
+            background: #FFF3CD;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #FFC300;
+            margin: 1rem 0;
+        }
+        
+        .info-box {
+            background: #E3F2FD;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #2563EB;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: #FFEBEE;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #F44336;
+            margin: 1.5rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2563EB;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .roadmap-phase {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid #FFC300;
+        }
+        
+        .team-member {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .footer {
+            background: #2563EB;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer a {
+            color: #FFC300;
+            text-decoration: none;
+        }
+        
+        .nav-top {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-top:hover {
+            background: #FFC300;
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#top" class="nav-top">↑ Top</a>
+    
+    <div class="container">
+        <div class="header" id="top">
+            <h1>GiveToken (GIVE) Whitepaper</h1>
+            <div class="subtitle">Revolutionizing Charitable Giving Through Blockchain Technology</div>
+            <div class="version">Version 2.0 | January 2025</div>
+        </div>
+        
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#executive-summary">Executive Summary</a></li>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#problem-statement">Problem Statement</a></li>
+                <li><a href="#solution">GiveToken Solution</a></li>
+                <li><a href="#technology">Technology Architecture</a></li>
+                <li><a href="#tokenomics">Tokenomics</a></li>
+                <li><a href="#dao">CharityDAO Ecosystem</a></li>
+                <li><a href="#use-cases">Use Cases & Applications</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#team">Team & Advisors</a></li>
+                <li><a href="#partnerships">Partnerships</a></li>
+                <li><a href="#legal">Legal & Regulatory</a></li>
+                <li><a href="#security">Security & Audits</a></li>
+                <li><a href="#marketing">Marketing & Community</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+            </ol>
+        </div>
+        
+        <div class="section" id="executive-summary">
+            <h1>1. Executive Summary</h1>
+            
+            <div class="info-box">
+                <h3>Vision Statement</h3>
+                <p>GiveToken (GIVE) is pioneering the future of charitable giving by creating the world's first fully transparent, decentralized, and community-governed donation ecosystem.</p>
+            </div>
+            
+            <h3>Mission</h3>
+            <p>To democratize charitable giving by providing a transparent, efficient, and globally accessible platform that connects donors directly with causes they care about, while ensuring every contribution creates maximum impact through smart contract automation and community governance.</p>
+            
+            <h3>Market Opportunity</h3>
+            <p>The global charitable giving market represents over <strong>$450 billion annually</strong>, yet suffers from 20-40% administrative overhead, limited transparency, and declining donor trust. Blockchain technology offers a <strong>$100+ billion opportunity</strong> to transform this sector.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">1B</div>
+                    <div class="stat-label">Total GIVE Tokens</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">40%</div>
+                    <div class="stat-label">Public Sale</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30%</div>
+                    <div class="stat-label">Charity Fund</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">20%</div>
+                    <div class="stat-label">Team & Advisors</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section" id="introduction">
+            <h1>2. Introduction</h1>
+            
+            <h3>The Evolution of Charitable Giving</h3>
+            <p>Charitable giving has been fundamental to human civilization for millennia, yet the digital age has exposed significant limitations in traditional charitable systems. The current landscape faces trust crises, operational inefficiencies, and geographic barriers that limit positive impact.</p>
+            
+            <h3>Current Challenges</h3>
+            <ul>
+                <li><strong>Trust Crisis:</strong> High-profile scandals have eroded public confidence</li>
+                <li><strong>Operational Inefficiency:</strong> 20-40% of donations consumed by overhead</li>
+                <li><strong>Limited Transparency:</strong> Donors lack visibility into fund utilization</li>
+                <li><strong>Geographic Barriers:</strong> Cross-border donations face regulatory hurdles</li>
+            </ul>
+            
+            <div class="highlight">
+                <strong>The Blockchain Opportunity:</strong> Blockchain technology offers unprecedented solutions through immutable transparency, smart contract automation, global accessibility, reduced costs, and community governance.
+            </div>
+        </div>
+        
+        <div class="section" id="problem-statement">
+            <h1>3. Problem Statement</h1>
+            
+            <h3>3.1 Transparency Crisis</h3>
+            <p>Current charitable systems operate as "black boxes" where donors contribute funds with minimal insight into utilization, creating donor skepticism and accountability gaps.</p>
+            
+            <h3>3.2 High Administrative Costs</h3>
+            <ul>
+                <li>Executive Compensation: 5-15% of total budget</li>
+                <li>Operational Expenses: 10-20% of total budget</li>
+                <li>Marketing and Fundraising: 15-25% of total budget</li>
+                <li>Regulatory Compliance: 3-8% of total budget</li>
+            </ul>
+            
+            <h3>3.3 Limited Global Reach</h3>
+            <p>Traditional systems face banking restrictions, currency conversion costs, regulatory complexities, and technology access barriers that limit global charitable impact.</p>
+            
+            <h3>3.4 Trust Deficit</h3>
+            <p>The charitable sector faces declining trust from donors, charities, and beneficiaries due to systemic issues and lack of direct connection between stakeholders.</p>
+        </div>
+        
+        <div class="section" id="solution">
+            <h1>4. GiveToken Solution</h1>
+            
+            <h3>4.1 Comprehensive Blockchain Platform</h3>
+            <p>GiveToken introduces a revolutionary approach addressing every major challenge through innovative blockchain technology and community governance.</p>
+            
+            <h3>Core Features:</h3>
+            <ul>
+                <li><strong>Transparent Donation Tracking:</strong> Real-time visibility from source to impact</li>
+                <li><strong>Smart Contract Automation:</strong> Programmable distribution and compliance</li>
+                <li><strong>Global Accessibility:</strong> 24/7 operation without geographic restrictions</li>
+                <li><strong>Community Governance:</strong> Democratic decision-making through CharityDAO</li>
+            </ul>
+            
+            <div class="info-box">
+                <h4>Impact Reduction in Costs</h4>
+                <p>Smart contract automation and elimination of intermediaries can reduce administrative costs from <strong>20-40% to less than 5%</strong>, dramatically increasing the impact of every donation.</p>
+            </div>
+        </div>
+        
+        <div class="section" id="technology">
+            <h1>5. Technology Architecture</h1>
+            
+            <h3>5.1 Polygon Network</h3>
+            <p>Built on Polygon for strategic advantages:</p>
+            <ul>
+                <li><strong>Cost Efficiency:</strong> Transaction fees under $0.01</li>
+                <li><strong>Scalability:</strong> 65,000+ transactions per second</li>
+                <li><strong>Ethereum Compatibility:</strong> Full EVM compatibility</li>
+                <li><strong>Environmental Responsibility:</strong> 99.9% lower energy consumption</li>
+            </ul>
+            
+            <h3>5.2 Smart Contract Infrastructure</h3>
+            <ul>
+                <li><strong>GIVE Token Contract:</strong> ERC-20 token with governance functions</li>
+                <li><strong>Donation Contract:</strong> Multi-currency donation processing</li>
+                <li><strong>Charity Registry:</strong> Verified partner database</li>
+                <li><strong>Governance Contract:</strong> DAO voting mechanisms</li>
+                <li><strong>Impact Tracking:</strong> Automated reporting and metrics</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="tokenomics">
+            <h1>6. Tokenomics</h1>
+            
+            <h3>Token Overview</h3>
+            <ul>
+                <li><strong>Token Standard:</strong> ERC-20 (Polygon Network)</li>
+                <li><strong>Total Supply:</strong> 1,000,000,000 GIVE (Fixed)</li>
+                <li><strong>Symbol:</strong> GIVE</li>
+                <li><strong>Decimals:</strong> 18</li>
+            </ul>
+            
+            <h3>Distribution Breakdown</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">400M</div>
+                    <div class="stat-label">Public Sale (40%)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">300M</div>
+                    <div class="stat-label">Charity Fund (30%)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">200M</div>
+                    <div class="stat-label">Team & Advisors (20%)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100M</div>
+                    <div class="stat-label">Community Rewards (10%)</div>
+                </div>
+            </div>
+            
+            <h3>Utility Functions</h3>
+            <ul>
+                <li><strong>Donation Medium:</strong> Direct charitable contributions</li>
+                <li><strong>Governance Voting:</strong> Platform decision participation</li>
+                <li><strong>Staking Rewards:</strong> 5% APY for long-term holders</li>
+                <li><strong>Platform Benefits:</strong> Reduced fees and premium features</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="dao">
+            <h1>7. CharityDAO Ecosystem</h1>
+            
+            <h3>Governance Framework</h3>
+            <p>The CharityDAO ensures democratic decision-making with transparent community governance:</p>
+            
+            <ul>
+                <li><strong>Voting Power:</strong> 1 GIVE = 1 vote</li>
+                <li><strong>Proposal Threshold:</strong> 1M+ GIVE to create proposals</li>
+                <li><strong>Quorum:</strong> 5% of circulating supply required</li>
+                <li><strong>Timelock:</strong> 48-hour delay before implementation</li>
+            </ul>
+            
+            <h3>Proposal Categories</h3>
+            <ul>
+                <li>Platform upgrades and technical changes</li>
+                <li>Charity partner approval and management</li>
+                <li>Economic policy and fee adjustments</li>
+                <li>Emergency proposals and critical updates</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="use-cases">
+            <h1>8. Use Cases & Applications</h1>
+            
+            <h3>8.1 Direct Charitable Donations</h3>
+            <ul>
+                <li><strong>Micro-Donations:</strong> Enable $1-$10 donations without prohibitive fees</li>
+                <li><strong>Major Gift Philanthropy:</strong> Secure large donation processing</li>
+                <li><strong>Corporate CSR:</strong> Automated corporate donation programs</li>
+                <li><strong>Emergency Response:</strong> Rapid disaster relief deployment</li>
+            </ul>
+            
+            <h3>8.2 Innovative Models</h3>
+            <ul>
+                <li><strong>Education Sponsorships:</strong> Milestone-based student support</li>
+                <li><strong>Healthcare Initiatives:</strong> Treatment-specific funding</li>
+                <li><strong>Environmental Projects:</strong> Carbon offset and conservation</li>
+                <li><strong>Community Development:</strong> Infrastructure and economic development</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="roadmap">
+            <h1>9. Roadmap</h1>
+            
+            <div class="roadmap-phase">
+                <h3>Phase 1: Foundation (Q1-Q2 2025)</h3>
+                <ul>
+                    <li>✅ Smart contract development and testing</li>
+                    <li>✅ Website launch and community building</li>
+                    <li>🔄 Security audits and platform deployment</li>
+                    <li>⏳ Initial charity partner onboarding</li>
+                </ul>
+                <strong>Target:</strong> $100K+ donations, 1,000+ community members
+            </div>
+            
+            <div class="roadmap-phase">
+                <h3>Phase 2: Platform Development (Q3-Q4 2025)</h3>
+                <ul>
+                    <li>Mobile application launch</li>
+                    <li>Advanced governance implementation</li>
+                    <li>50+ charity partners</li>
+                    <li>Enhanced analytics and reporting</li>
+                </ul>
+                <strong>Target:</strong> $1M+ donations, 10,000+ community members
+            </div>
+            
+            <div class="roadmap-phase">
+                <h3>Phase 3: Partnership Expansion (Q1-Q2 2026)</h3>
+                <ul>
+                    <li>Major NGO partnerships</li>
+                    <li>Corporate CSR program integrations</li>
+                    <li>Cross-chain compatibility</li>
+                    <li>100+ partners across 20+ countries</li>
+                </ul>
+                <strong>Target:</strong> $10M+ donations, 50,000+ community members
+            </div>
+            
+            <div class="roadmap-phase">
+                <h3>Phase 4: Global Scaling (Q3-Q4 2026)</h3>
+                <ul>
+                    <li>International regulatory compliance</li>
+                    <li>Enterprise platform solutions</li>
+                    <li>500+ global charity partners</li>
+                    <li>Mainstream payment integration</li>
+                </ul>
+                <strong>Target:</strong> $100M+ donations, 100,000+ community members
+            </div>
+        </div>
+        
+        <div class="section" id="team">
+            <h1>10. Team & Advisors</h1>
+            
+            <div class="team-member">
+                <h3>Sait ALAY - Co-founder & CEO</h3>
+                <p>Experienced entrepreneur with expertise in blockchain technology and social impact initiatives. Responsible for strategic vision and partnership development.</p>
+            </div>
+            
+            <div class="team-member">
+                <h3>Ferhat SARIKAYA - Senior Developer & CTO</h3>
+                <p>Lead blockchain developer with extensive smart contract and DeFi experience. Expert in Solidity and Web3 development with 8+ years in software development.</p>
+            </div>
+            
+            <div class="team-member">
+                <h3>Fatih Demir - Senior Blockchain Developer</h3>
+                <p>Smart contract development specialist with 7+ years in software development and 4+ years in blockchain. Expert in Solidity, Rust, Go, and DeFi protocols with experience in security auditing.</p>
+            </div>
+            
+            <div class="team-member">
+                <h3>Ramazan ISIK - Backend Developer</h3>
+                <p>Backend infrastructure specialist with 5+ years in scalable web application development. Expert in Node.js, Python, PostgreSQL, and microservices architecture with fintech experience.</p>
+            </div>
+            
+            <div class="team-member">
+                <h3>Development Team</h3>
+                <ul>
+                    <li><strong>Bob Johnson:</strong> Full-Stack Developer</li>
+                    <li><strong>Charlie Lee:</strong> Frontend Developer</li>
+                    <li><strong>Fatih Demir:</strong> Senior Blockchain Developer</li>
+                    <li><strong>Ramazan ISIK:</strong> Backend Developer</li>
+                </ul>
+            </div>
+            
+            <div class="team-member">
+                <h3>Business Team</h3>
+                <ul>
+                    <li><strong>Ilkay CANITEZ:</strong> Chief Financial Officer</li>
+                    <li><strong>Enes SAHIN:</strong> Financial Analyst</li>
+                    <li><strong>Yasin OKTAY:</strong> Marketing Director</li>
+                    <li><strong>Cagri AKSU:</strong> Community Manager</li>
+                    <li><strong>Kadir TEKSAS:</strong> Lead Tester & QA</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section" id="partnerships">
+            <h1>11. Partnerships</h1>
+            
+            <h3>11.1 Charity Organization Partnerships</h3>
+            <p>Three-tier partnership system with verified, premium, and strategic charity partners based on due diligence and performance criteria.</p>
+            
+            <h3>11.2 Technology Partnerships</h3>
+            <ul>
+                <li>Major exchange integrations (Binance, Coinbase, Kraken)</li>
+                <li>Wallet provider partnerships (MetaMask, Trust Wallet)</li>
+                <li>Infrastructure and security service providers</li>
+            </ul>
+            
+            <h3>11.3 Corporate Partnerships</h3>
+            <p>Fortune 500 CSR program integrations, employee donation matching, and executive advisory board participation.</p>
+        </div>
+        
+        <div class="section" id="legal">
+            <h1>12. Legal & Regulatory</h1>
+            
+            <h3>Compliance Framework</h3>
+            <p>Comprehensive approach to global regulatory compliance including securities law, AML/KYC, charitable giving regulations, and cryptocurrency compliance.</p>
+            
+            <h3>Key Jurisdictions</h3>
+            <ul>
+                <li><strong>United States:</strong> SEC, CFTC, FinCEN compliance</li>
+                <li><strong>European Union:</strong> MiCA, GDPR, AMLD compliance</li>
+                <li><strong>Other Markets:</strong> UK, Canada, Australia regulatory frameworks</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="security">
+            <h1>13. Security & Audits</h1>
+            
+            <h3>Multi-Layer Security</h3>
+            <ul>
+                <li><strong>Smart Contract Security:</strong> Multiple independent audits</li>
+                <li><strong>Operational Security:</strong> Multi-signature wallets and time-locks</li>
+                <li><strong>User Protection:</strong> Hardware wallet support and 2FA</li>
+                <li><strong>Infrastructure Security:</strong> Enterprise-grade hosting and monitoring</li>
+            </ul>
+            
+            <h3>Audit Partners</h3>
+            <p>Comprehensive security audits by leading firms including ConsenSys Diligence, OpenZeppelin, and CertiK with ongoing security monitoring and bug bounty programs.</p>
+        </div>
+        
+        <div class="section" id="marketing">
+            <h1>14. Marketing & Community</h1>
+            
+            <h3>Target Audiences</h3>
+            <ul>
+                <li><strong>Crypto-Native Donors:</strong> DeFi enthusiasts seeking charitable opportunities</li>
+                <li><strong>Traditional Philanthropists:</strong> Existing donors seeking transparency</li>
+                <li><strong>Younger Demographics:</strong> Gen Z and Millennials interested in social impact</li>
+                <li><strong>Charity Organizations:</strong> Nonprofits seeking efficient operations</li>
+            </ul>
+            
+            <h3>Community Building</h3>
+            <p>Multi-platform community engagement through Discord, Telegram, Twitter, and educational content creation with governance participation incentives.</p>
+        </div>
+        
+        <div class="section" id="conclusion">
+            <h1>15. Conclusion</h1>
+            
+            <h3>Transforming Charitable Giving</h3>
+            <p>GiveToken represents a fundamental reimagining of charitable giving for the digital age. By addressing transparency, efficiency, and trust challenges, we create a platform that benefits all stakeholders in the charitable ecosystem.</p>
+            
+            <div class="highlight">
+                <h4>Our Vision for the Future</h4>
+                <ul>
+                    <li><strong>Complete Transparency:</strong> Every donation tracked from source to impact</li>
+                    <li><strong>Global Accessibility:</strong> No barriers based on geography or status</li>
+                    <li><strong>Maximum Efficiency:</strong> Minimal overhead with maximum impact</li>
+                    <li><strong>Community Driven:</strong> Collective stakeholder decision-making</li>
+                    <li><strong>Measurable Impact:</strong> Clear metrics and real-world outcomes</li>
+                </ul>
+            </div>
+            
+            <h3>Join the Revolution</h3>
+                            <p>Whether you're a donor seeking transparency, a charity organization wanting efficiency, or a community member passionate about social impact, GiveToken offers a platform for meaningful participation in creating positive change.</p>
+            
+            <div class="info-box">
+                <h4>Together, we can build a more charitable world.</h4>
+                <p>The future of charitable giving starts here. The future of charitable giving starts with us. The future of charitable giving starts now.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <h3>Contact Information</h3>
+            <p>
+                <strong>Email:</strong> <a href="mailto:info@givechain.org">info@givechain.org</a><br>
+                <strong>Telegram:</strong> <a href="https://t.me/givechain">@givechain</a><br>
+                <strong>Twitter/X:</strong> <a href="https://twitter.com/givechain">@givechain</a><br>
+                <strong>Discord:</strong> <a href="https://discord.gg/givechain">discord.gg/givechain</a>
+            </p>
+            
+            <div class="warning-box" style="background: rgba(255,255,255,0.1); border-left-color: #FFC300;">
+                <strong>Legal Notice:</strong> This whitepaper is for informational purposes only and does not constitute investment advice. Please conduct your own due diligence and consult with qualified advisors before making any decisions.
+            </div>
+            
+            <p style="margin-top: 2rem; opacity: 0.8;">
+                <strong>Copyright © 2025 GiveToken. All rights reserved.</strong>
+            </p>
+        </div>
+    </div>
+</body>
+</html> 
