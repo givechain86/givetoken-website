@@ -1,0 +1,13 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer circle for unity/community -->
+  <circle cx="40" cy="40" r="36" fill="#E0F7FA" stroke="#2563EB" stroke-width="3"/>
+  <!-- Two hands (abstract, stylized) -->
+  <path d="M24 48 Q32 60 40 56 Q48 60 56 48" stroke="#FFC300" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M24 32 Q32 20 40 24 Q48 20 56 32" stroke="#FFC300" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <!-- Chain links (decentralization) -->
+  <ellipse cx="28" cy="40" rx="4" ry="8" stroke="#2563EB" stroke-width="2" fill="none"/>
+  <ellipse cx="52" cy="40" rx="4" ry="8" stroke="#2563EB" stroke-width="2" fill="none"/>
+  <!-- Central token/coin -->
+  <circle cx="40" cy="40" r="10" fill="#FFC300" stroke="#2563EB" stroke-width="2"/>
+  <text x="40" y="46" text-anchor="middle" font-size="14" font-family="Arial, Helvetica, sans-serif" fill="#2563EB" font-weight="bold">G</text>
+</svg> 
