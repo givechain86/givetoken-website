@@ -16,10 +16,10 @@ const AboutSection = () => (
             Define Your Possible. Change Your World.
           </h3>
           <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: '#64748b' }}>
-            GiveToken (GIVE) is a decentralized token designed to revolutionize charitable giving. By leveraging blockchain technology, GIVE ensures transparency, security, and global reach for donations.
+            GiveToken (GIVE) is a decentralized token designed to revolutionize charitable giving. By leveraging blockchain technology, GIVE ensures transparency, security and global reach for donations.
           </p>
           <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem', color: '#64748b' }}>
-            We combine pioneering technologies to provide unparalleled security and sustainability to charitable organizations, donation systems, and social impact initiatives.
+            We combine pioneering technologies to provide unparalleled security and sustainability to charitable organizations, donation systems and social impact initiatives.
           </p>
           <div style={{ 
             background: 'linear-gradient(135deg, #e0f2fe, #f3e5f5)', 
@@ -46,7 +46,7 @@ const AboutSection = () => (
               <div className="feature-icon">🔗</div>
               <h3 className="feature-title">Blockchain Security</h3>
               <p className="feature-description">
-                Built on Polygon with enterprise-grade security, smart contracts, and decentralized governance.
+                Built on Polygon with enterprise-grade security, smart contracts and decentralized governance.
               </p>
             </div>
           </div>
@@ -89,7 +89,7 @@ const AboutSection = () => (
           <div className="feature-icon">🎯</div>
           <h3 className="feature-title">Incentivized Participation</h3>
           <p className="feature-description">
-            Token rewards for community governance, charity verification, and long-term platform engagement.
+            Token rewards for community governance, charity verification and long-term platform engagement.
           </p>
         </div>
         
@@ -105,7 +105,7 @@ const AboutSection = () => (
           <div className="feature-icon">🌐</div>
           <h3 className="feature-title">Open Ecosystem</h3>
           <p className="feature-description">
-            Inclusive platform welcoming all charitable organizations, donors, and communities worldwide.
+            Inclusive platform welcoming all charitable organizations, donors and communities worldwide.
           </p>
         </div>
       </div>
@@ -116,12 +116,9 @@ const AboutSection = () => (
           GiveToken restores trust to global charitable systems
         </h3>
         <p style={{ fontSize: '1.2rem', color: '#64748b', marginBottom: '2rem', maxWidth: '800px', margin: '0 auto 2rem' }}>
-          Creating, through science, a more secure, transparent, and sustainable foundation for individuals to donate, organizations to operate, and communities to thrive.
+          Creating, through science, a more secure, transparent and sustainable foundation for individuals to donate, organizations to operate and communities to thrive.
         </p>
-        <a href="#tokenomics" className="btn-primary">
-          <span>📊</span>
-          Explore Tokenomics
-        </a>
+       
       </div>
     </div>
   </section>

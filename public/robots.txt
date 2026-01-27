@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://givetoken.org/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin areas (if any in future)
+# Disallow: /admin/
+
+# Allow important pages
+Allow: /
+Allow: /about
+Allow: /tokenomics
+Allow: /ico-sale
+Allow: /whitepaper
+Allow: /legal-compliance
+
+
+

@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './assets/givetoken-logo.svg';
+import logo from './assets/donatetoken-logo.svg';
 
 const HomeSection = () => (
   <section id="home" className="hero-section">
@@ -48,17 +48,17 @@ const HomeSection = () => (
                cursor: 'pointer',
                transition: 'all 0.3s ease'
              }}
-             onClick={() => navigator.clipboard.writeText('0x513C3D662558641e73C643dDf3b22AAB1B6f4322')}
+             onClick={() => navigator.clipboard.writeText('0xf45092BAddf17f6E4fBe18962814C90f8F983e34')}
              title="Click to copy full address"
              onMouseEnter={(e) => e.target.style.color = '#FFC300'}
              onMouseLeave={(e) => e.target.style.color = 'white'}>
-               0x513C3D662558641e73C643dDf3b22AAB1B6f4322
+               0xf45092BAddf17f6E4fBe18962814C90f8F983e34
              </div>
              
              {/* Interactive Buttons */}
              <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                <a 
-                 href="https://polygonscan.com/token/0x513C3D662558641e73C643dDf3b22AAB1B6f4322"
+                 href="https://polygonscan.com/address/0xf45092BAddf17f6E4fBe18962814C90f8F983e34"
                  target="_blank"
                  rel="noopener noreferrer"
                  style={{
@@ -92,10 +92,10 @@ const HomeSection = () => (
                          params: {
                            type: 'ERC20',
                            options: {
-                             address: '0x513C3D662558641e73C643dDf3b22AAB1B6f4322',
-                             symbol: 'GIVE',
+                             address: '0xf45092BAddf17f6E4fBe18962814C90f8F983e34',
+                             symbol: 'DONATE',
                              decimals: 18,
-                             image: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/polygon/assets/0x513C3D662558641e73C643dDf3b22AAB1B6f4322/logo.png',
+                             image: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/polygon/assets/0xf45092BAddf17f6E4fBe18962814C90f8F983e34/logo.png',
                            },
                          },
                        });
@@ -105,7 +105,7 @@ const HomeSection = () => (
                      }
                    } catch (error) {
                      console.error('Error adding token:', error);
-                     alert('Failed to add token. Please add manually:\n\nContract: 0x513C3D662558641e73C643dDf3b22AAB1B6f4322\nSymbol: GIVE\nDecimals: 18');
+                     alert('Failed to add token. Please add manually:\n\nContract: 0xf45092BAddf17f6E4fBe18962814C90f8F983e34\nSymbol: GIVE\nDecimals: 18');
                    }
                  }}
                  style={{

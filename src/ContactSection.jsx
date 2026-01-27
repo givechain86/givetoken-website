@@ -9,7 +9,7 @@ const ContactSection = () => (
       <textarea placeholder="Your Message" required style={{ padding: '0.5rem' }} rows={4} />
       <button type="submit" style={{ padding: '0.75rem', background: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', fontWeight: 'bold' }}>Send Message</button>
     </form>
-    <p style={{ textAlign: 'center' }}>Or email us at <a href="mailto:info@givechaintoken.org">info@givechaintoken.org</a></p>
+    <p style={{ textAlign: 'center' }}>Or email us at <a href="mailto:info@givetoken.org">info@givetoken.org</a></p>
   </section>
 );
 

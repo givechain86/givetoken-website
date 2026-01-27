@@ -14,7 +14,7 @@ const TokenomicsSection = () => (
             width: '300px', 
             height: '300px', 
             borderRadius: '50%', 
-            background: 'conic-gradient(#FFC300 0deg 144deg, #2563EB 144deg 252deg, #22C55E 252deg 324deg, #F59E0B 324deg 360deg)',
+            background: 'conic-gradient(#FFC300 0deg 72deg, #2563EB 72deg 90deg, #22C55E 90deg 216deg, #F59E0B 216deg 270deg, #8B5CF6 270deg 324deg, #EF4444 324deg 353deg, #10B981 353deg 360deg)',
             margin: '0 auto 2rem',
             position: 'relative',
             boxShadow: '0 8px 25px rgba(0,0,0,0.1)'
@@ -68,14 +68,14 @@ const TokenomicsSection = () => (
                   borderRadius: '6px',
                   border: '1px solid #e2e8f0'
                 }}>
-                  <strong>Contract:</strong> 0x513C3D662558641e73C643dDf3b22AAB1B6f4322
+                  <strong>Contract:</strong> 0xf45092BAddf17f6E4fBe18962814C90f8F983e34
                 </div>
               </div>
               
               {/* Action Buttons */}
               <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem', flexWrap: 'wrap' }}>
                 <a 
-                  href="https://polygonscan.com/token/0x513C3D662558641e73C643dDf3b22AAB1B6f4322"
+                  href="https://polygonscan.com/address/0xf45092BAddf17f6E4fBe18962814C90f8F983e34"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -94,7 +94,7 @@ const TokenomicsSection = () => (
                 
                 <button
                   onClick={() => {
-                    navigator.clipboard.writeText('0x513C3D662558641e73C643dDf3b22AAB1B6f4322');
+                    navigator.clipboard.writeText('0xf45092BAddf17f6E4fBe18962814C90f8F983e34');
                     alert('Contract address copied to clipboard!');
                   }}
                   style={{
@@ -121,10 +121,10 @@ const TokenomicsSection = () => (
                            params: {
                              type: 'ERC20',
                              options: {
-                               address: '0x513C3D662558641e73C643dDf3b22AAB1B6f4322',
+                               address: '0xf45092BAddf17f6E4fBe18962814C90f8F983e34',
                                symbol: 'GIVE',
                                decimals: 18,
-                               image: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/polygon/assets/0x513C3D662558641e73C643dDf3b22AAB1B6f4322/logo.png',
+                               image: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/polygon/assets/0xf45092BAddf17f6E4fBe18962814C90f8F983e34/logo.png',
                              },
                            },
                          });
@@ -134,7 +134,7 @@ const TokenomicsSection = () => (
                        }
                      } catch (error) {
                        console.error('Error adding token:', error);
-                       alert('Failed to add token. Please add manually:\n\nContract: 0x513C3D662558641e73C643dDf3b22AAB1B6f4322\nSymbol: GIVE\nDecimals: 18');
+                       alert('Failed to add token. Please add manually:\n\nContract: 0xf45092BAddf17f6E4fBe18962814C90f8F983e34\nSymbol: GIVE\nDecimals: 18');
                      }
                    }}
                   style={{
@@ -166,8 +166,9 @@ const TokenomicsSection = () => (
             }} className="card-hover">
               <div style={{ fontSize: '2rem', marginRight: '1rem' }} className="pulse-icon">💰</div>
               <div>
-                <strong>Public Sale: 40%</strong>
-                <div style={{ fontSize: '0.9rem', color: '#666' }}>400,000,000 GIVE</div>
+                <strong>Public Sale (ICO): 35%</strong>
+                <div style={{ fontSize: '0.9rem', color: '#666' }}>350,000,000 GIVE</div>
+                <div style={{ fontSize: '0.8rem', color: '#888' }}>Available for purchase • Max 5 MATIC per transaction</div>
               </div>
             </div>
             
@@ -179,10 +180,11 @@ const TokenomicsSection = () => (
               borderRadius: '8px',
               borderLeft: '4px solid #2563EB'
             }} className="card-hover">
-              <div style={{ fontSize: '2rem', marginRight: '1rem' }} className="pulse-icon">💝</div>
+              <div style={{ fontSize: '2rem', marginRight: '1rem' }} className="pulse-icon">🎯</div>
               <div>
-                <strong>Charity Fund: 30%</strong>
-                <div style={{ fontSize: '0.9rem', color: '#666' }}>300,000,000 GIVE</div>
+                <strong>Charity Fund: 35%</strong>
+                <div style={{ fontSize: '0.9rem', color: '#666' }}>350,000,000 GIVE</div>
+                <div style={{ fontSize: '0.8rem', color: '#888' }}>Charitable donations and impact programs</div>
               </div>
             </div>
             
@@ -194,10 +196,11 @@ const TokenomicsSection = () => (
               borderRadius: '8px',
               borderLeft: '4px solid #22C55E'
             }} className="card-hover">
-              <div style={{ fontSize: '2rem', marginRight: '1rem' }} className="pulse-icon">👥</div>
+              <div style={{ fontSize: '2rem', marginRight: '1rem' }} className="pulse-icon">💝</div>
               <div>
-                <strong>Team & Advisors: 20%</strong>
-                <div style={{ fontSize: '0.9rem', color: '#666' }}>200,000,000 GIVE</div>
+                <strong>Team & Advisors: 15%</strong>
+                <div style={{ fontSize: '0.9rem', color: '#666' }}>150,000,000 GIVE</div>
+                <div style={{ fontSize: '0.8rem', color: '#888' }}>4-5 years linear vesting</div>
               </div>
             </div>
             
@@ -207,12 +210,13 @@ const TokenomicsSection = () => (
               padding: '1rem', 
               background: '#f8f9fa', 
               borderRadius: '8px',
-              borderLeft: '4px solid #F59E0B'
+              borderLeft: '4px solid #8B5CF6'
             }} className="card-hover">
               <div style={{ fontSize: '2rem', marginRight: '1rem' }} className="pulse-icon">🎁</div>
               <div>
-                <strong>Community Rewards: 10%</strong>
-                <div style={{ fontSize: '0.9rem', color: '#666' }}>100,000,000 GIVE</div>
+                <strong>Community Rewards: 15%</strong>
+                <div style={{ fontSize: '0.9rem', color: '#666' }}>150,000,000 GIVE</div>
+                <div style={{ fontSize: '0.8rem', color: '#888' }}>Staking rewards and community programs</div>
               </div>
             </div>
           </div>
